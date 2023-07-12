@@ -78,7 +78,7 @@ const Home = () => {
       setDate(`${exactTime} - ${exactDay}   ${exactDate}`);
       setLoading(false);
     } catch (error) {
-      window.alert(error);
+      window.alert("Location Not Found");
       setLoading(false);
     }
   };
