@@ -45,9 +45,18 @@ const Home = () => {
     try {
       e.preventDefault();
       setLoading(true);
-      const { data } = await axios.post(`${server}/serachwhether`, {
-        city,
-      });
+      const { data } = await axios.post(
+        `${server}/serachwhether`,
+        {
+          city,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
 
       // // Destructuring
       const {
