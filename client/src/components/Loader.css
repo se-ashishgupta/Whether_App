@@ -1,0 +1,22 @@
+.loader {
+  min-height: 90vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background-color: white;
+}
+
+.loader div {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 4px solid black;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
