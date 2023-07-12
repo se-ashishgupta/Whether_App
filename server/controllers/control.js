@@ -1,3 +1,4 @@
+import fetch from "cross-fetch";
 export const getWhether = async (req, res, next) => {
   try {
     const { city } = req.body;
