@@ -43,7 +43,12 @@
 }
 
 .weather1 {
-  font-size: 4rem;
+  font-size: 3rem;
+}
+.weather2 {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .weather p {

@@ -1,7 +1,7 @@
 import fetch from "cross-fetch";
 export const getWhether = async (req, res, next) => {
   try {
-    const { city } = req.body;
+    const { city = "Delhi" } = req.body;
 
     const url = `https://api.weatherapi.com/v1/current.json?key=5b27a6ef3547402582e62007222306&q=${city}`;
     const response = await fetch(url);

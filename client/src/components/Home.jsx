@@ -11,6 +11,7 @@ const Home = () => {
   const [text, setText] = useState("");
   const [icon, setIcon] = useState("");
   const [date, setDate] = useState("");
+  const [windKph, setWindKph] = useState("");
 
   // Function to get the name of day
   function getDayFullName(num) {
@@ -58,10 +59,13 @@ const Home = () => {
         }
       );
 
+      console.log(data);
+
       // // Destructuring
       const {
         current: {
           temp_c,
+          wind_kph,
           condition: { text, icon },
         },
         location: { name, localtime },
@@ -75,6 +79,7 @@ const Home = () => {
       setName(name);
       setText(text);
       setIcon(icon);
+      setWindKph(wind_kph);
       setDate(`${exactTime} - ${exactDay}   ${exactDate}`);
       setLoading(false);
     } catch (error) {
@@ -82,17 +87,18 @@ const Home = () => {
       setLoading(false);
     }
   };
-  return loading ? (
-    <Loader />
-  ) : (
+
+  return (
     <div>
       <div className="container">
         {temp ? (
           <div className="weather">
-            <div className="weather1">{temp}</div>
+            <div className="weather1">{temp}°C</div>
+
             <div className="weather2">
               <p>{name}</p>
               <span>{date}</span>
+              <span>{windKph} kmph</span>
             </div>
 
             <div className="weather3">
@@ -117,7 +123,7 @@ const Home = () => {
             onChange={(e) => setCity(e.target.value)}
             required
           />
-          <button type="submit">Search</button>
+          <button type="submit"> {loading ? <Loader /> : <p>Search</p>}</button>
         </form>
       </nav>
     </div>
